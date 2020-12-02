@@ -1,4 +1,5 @@
 let g:deoplete#enable_at_startup = 1
+let mapleader="\<space>"
 
 call plug#begin('~/.local/share/nvim/plugged')
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -50,6 +51,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" GoBack
+nmap <silent> gb <C-o>
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -63,6 +66,8 @@ function! s:show_documentation()
 	endif
 endfunction
 
+nnoremap <silent> <leader>h :CocCommand clangd.switchSourceHeader<CR>
+map <leader>n :NERDTree<CR>
 "在Hover调出之后使用
 " Ctrl + f 文档翻页, 光标仍在原来文件
 nnoremap <expr><C-f> coc#float#has_float() ? coc#float#scroll(1) : "\<C-f>"
